@@ -1,0 +1,28 @@
+{
+  "name": "webcrawler-node",
+  "version": "1.0.0",
+  "description": "Project is for learn HTTP from wagslane",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekkushal/webcrawler-node-wagslane.git"
+  },
+  "keywords": [
+    "web-crawler",
+    "crawler",
+    "nodejs"
+  ],
+  "author": "Vivek Kushal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vivekkushal/webcrawler-node-wagslane/issues"
+  },
+  "homepage": "https://github.com/vivekkushal/webcrawler-node-wagslane#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
