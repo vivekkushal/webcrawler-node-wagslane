@@ -7,10 +7,20 @@ function getURLsFromHTML(htmlBody, baseURL) {
   for (const linkElement of linkElements) {
     if (linkElement.href.slice(0, 1) === '/') {
       // relative
-      urls.push(baseURL + linkElement.href);
-    } else if (linkElement.href.slice(0, 4) === 'http') {
+      try {
+        const urlObj = new URL(baseURL + linkElement.href);
+        urls.push(urlObj.href);
+      } catch (err) {
+        console.error(`error with relative url: ${err.message}`);
+      }
+    } else {
       // absolute
-      urls.push(linkElement.href);
+      try {
+        const urlObj = new URL(linkElement.href);
+        urls.push(urlObj.href);
+      } catch (err) {
+        console.error(`error with absolute url: ${err.message}`);
+      }
     }
   }
   return urls;
