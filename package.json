@@ -24,5 +24,8 @@
   "homepage": "https://github.com/vivekkushal/webcrawler-node-wagslane#readme",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "jsdom": "^25.0.1"
   }
 }

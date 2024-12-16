@@ -1,5 +1,22 @@
+const { JSDOM } = require('jsdom');
+
+function getURLsFromHTML(htmlBody, baseURL) {
+  const urls = [];
+  const dom = new JSDOM(htmlBody);
+  const linkElements = dom.window.document.querySelectorAll('a');
+  for (const linkElement of linkElements) {
+    if (linkElement.href.slice(0, 1) === '/') {
+      // relative
+      urls.push(baseURL + linkElement.href);
+    } else if (linkElement.href.slice(0, 4) === 'http') {
+      // absolute
+      urls.push(linkElement.href);
+    }
+  }
+  return urls;
+}
+
 function normalizeURL(urlString) {
-  // const page = urlString.split("//")
   const urlObj = new URL(urlString);
   const hostPath = `${urlObj.hostname}${urlObj.pathname}`;
   if (hostPath.length > 0 && hostPath.slice(-1) === '/') {
@@ -10,4 +27,5 @@ function normalizeURL(urlString) {
 
 module.exports = {
   normalizeURL,
+  getURLsFromHTML,
 };
