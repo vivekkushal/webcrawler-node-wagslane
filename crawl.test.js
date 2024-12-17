@@ -13,7 +13,7 @@ test('normalizeURL strip protocol', () => {
   expect(actual).toEqual(expected);
 });
 
-test('normalizeURL strip trailing slashe', () => {
+test('normalizeURL strip trailing slash', () => {
   const input = 'https://blog.boot.dev/path/';
   const actual = normalizeURL(input);
   const expected = 'blog.boot.dev/path';
